@@ -63,8 +63,14 @@ int main()
     cout << "Podaj koniec przedzialu: ";
     wczytaj(k_ptr);
 
-    //wypelnij(w_ptr, p_ptr, k_ptr, tab);
-    wyswietl(w_ptr, tab);
+    while(poczatek > koniec)
+    {
+        cout << "Podaj koiec przedzialu: ";
+        wczytaj(k_ptr);
+    }
+
+    wypelnij(w_ptr, p_ptr, k_ptr, tab);
+    //wyswietl(w_ptr, tab);
     b_sort(w_ptr, tab);
     cout << "Liczby po posortowaniu: ";
     wyswietl(w_ptr, tab);

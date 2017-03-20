@@ -4,51 +4,53 @@
 
 using namespace std;
 
-void wypelnij(int *tab, int wielkosc)
+void wypelnij(int tab[])
 {
-	for(int i = 0; i < wielkosc; i++)
-		*(tab+i) = rand() % 100 + 1;
+    for(int i = 0; i < 10; i++)
+    {
+        *(tab+i) = rand() % 75 + 25;
+    }
 }
 
-void wypisz(int *tab, int wielkosc)
+void wypelnij_float(float tab[])
 {
-	for(int i = 0; i < wielkosc; i++)
-		cout << *(tab+i) << " ";
-	cout << endl;
+    int a = 1 * 10;
+    int b = 10 * 10;
+    for(int i = 0; i < 10; i++)
+        *(tab+i) = ((rand()%(b-a)+a)/10.0);
+    //cout << tab[0];
 }
 
-int Znajdz(int *tab, int wielkosc, int wartosc)
+void wyswietl1(int tab[])
 {
-	int szukana = -1;
-	for(int i = 0; i < wielkosc; i++)
-	{
-		if( *(tab+i) == wartosc)
-			szukana = i;
-	}
-	return szukana;
+    for(int i = 0; i < 10; i+=2)
+    {
+        cout << *(tab+i) << endl;
+    }
+}
+
+void wyswietl2(float tab[])
+{
+    for(int i = 0; i < 10; i+=3)
+        cout << *(tab+i) << endl;
+}
+
+void wyswietl3(char tab[])
+{
+    for(int i = 0; i < 10; i+=3)
+        cout << *(tab+i) << endl;
 }
 
 int main()
 {
-	srand(time(NULL));
-	int *tab = new int[10];
-	int index;
-	int wartosc;
-
-	wypelnij(tab, 10);
-	wypisz(tab, 10);
-	cout << "Podaj wartosc: ";
-	cin >> wartosc;
-
-	index = Znajdz(tab, 10, wartosc);
-	if(index == -1)
-	{
-		cout << "Nie udalo znalesc indexu" << endl;
-	}
-	else
-	{
-		cout << "Znaleziono index: "<< index << endl;
-	}
-
-	return 0;
+    srand(time(NULL));
+    int tab[10];
+    float tab2[10];
+    char tab3[10] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'};
+    wypelnij(tab);
+    wyswietl1(tab);
+    wypelnij_float(tab2);
+    wyswietl2(tab2);
+    wyswietl3(tab3);
+    return 0;
 }
