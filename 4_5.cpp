@@ -10,8 +10,8 @@ float wylicz1(int x)
 
 float wylicz2(int x)
 {
-    float a = (x*x + 3*x)/((x+1)*(x+2));
-    cout << a << endl;
+    float a = (float)(x*x + 3*x)/((x+1)*(x+2));
+    //cout << a << endl;
     return a;
 }
 
